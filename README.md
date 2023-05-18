@@ -47,13 +47,13 @@ plt.title("profit prediction")
 
 def compute(x,y,theta):
 
-m=len(y)
+  m=len(y)
 
-h=x.dot(theta)
+ h=x.dot(theta)
 
-square_err=(h-y)**2
+ square_err=(h-y)**2
 
-return 1/(2*m)*np.sum(square_err)
+ return 1/(2*m)*np.sum(square_err)
 
 data_n=data.values
 
@@ -69,23 +69,23 @@ compute(x,y,theta)
 
 def gradientDescent(x,y,theta,alpha,num_iters):
 
-m=len(y)
+ m=len(y)
 
-j_history=[]
+ j_history=[]
 
-for i in range(num_iters):
+ for i in range(num_iters):
 
-predictions=x.dot(theta)
+   predictions=x.dot(theta)
 
-error=np.dot(x.transpose(),(predictions-y))
+   error=np.dot(x.transpose(),(predictions-y))
 
-descent=alpha*1/m*error
+   descent=alpha*1/m*error
 
-theta-=descent
+   theta-=descent
 
-j_history.append(compute(x,y,theta))
+   j_history.append(compute(x,y,theta))
 
-return theta,j_history
+ return theta,j_history
 
 theta,j_history=gradientDescent(x,y,theta,0.01,1500)
 
@@ -119,9 +119,9 @@ plt.title("profit prediction")
 
 def  predict(x,theta):
 
-predictions=np.dot(theta.transpose(),x)
+  predictions=np.dot(theta.transpose(),x)
 
-return predictions[0]
+  return predictions[0]
 
 predict1=predict(np.array([1,3.5]),theta)*10000
 
